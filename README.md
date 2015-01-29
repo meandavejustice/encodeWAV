@@ -1,6 +1,6 @@
-# encodeWAV
+# encode-wav
 
-[![NPM](https://nodei.co/npm/encodeWAV.png?downloads=true)](https://npmjs.org/package/encodeWAV)
+[![NPM](https://nodei.co/npm/encode-wav.png?downloads=true)](https://npmjs.org/package/encode-wav)
 
 encode WAV files from audio buffers
 
@@ -15,6 +15,8 @@ that is it.
 
 ## Example Usage
 ``` javascript
+var encoder = require('encode-wav');
+
 encoder.encodeWAV([buffer.getChannelData(0), buffer.getChannelData(1)],
                   buffer.sampleRate,
                   function(blob) {

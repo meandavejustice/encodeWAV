@@ -1,5 +1,5 @@
 {
-  "name": "encodeWAV",
+  "name": "encode-wav",
   "version": "0.1.0",
   "description": "encode audio buffers into a wav file in a worker",
   "main": "index.js",
