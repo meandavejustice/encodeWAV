@@ -10,5 +10,21 @@
   "license": "MIT",
   "dependencies": {
     "webworkify": "^1.0.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meandavejustice/encodeWAV.git"
+  },
+  "keywords": [
+    "encode",
+    "WAV",
+    "audiosource",
+    "webaudio",
+    "buffer"
+  ],
+  "bugs": {
+    "url": "https://github.com/meandavejustice/encodeWAV/issues"
+  },
+  "homepage": "https://github.com/meandavejustice/encodeWAV"
 }
