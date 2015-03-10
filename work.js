@@ -7,8 +7,17 @@ module.exports = function(self) {
 }
 
 function exportWAV(leftBuffer, rightBuffer, sampleRate) {
-  var interleaved = interleave(leftBuffer, rightBuffer);
-  var dataview = encodeWAV(interleaved, sampleRate);
+  var numChannel;
+  var interleaved;
+  if (typeof rightBuf !== 'undefined'){
+    numChannel = 2;
+    interleaved = interleave(leftBuffer, rightBuffer)
+  }else{
+    numChannel = 1;
+    interleaved = leftBuffer;
+  }
+
+  var dataview = encodeWAV(interleaved, sampleRate, numChannel);
   var audioBlob = new Blob([dataview], {type: "audio/wav"});
 
   this.postMessage(audioBlob);
@@ -49,7 +58,7 @@ function writeString(view, offset, string) {
   }
 }
 
-function encodeWAV(samples, sampleRate){
+function encodeWAV(samples, sampleRate, numChannel){
   var buffer = new ArrayBuffer(44 + samples.length * 2);
   var view = new DataView(buffer);
 
@@ -66,7 +75,7 @@ function encodeWAV(samples, sampleRate){
   /* sample format (raw) */
   view.setUint16(20, 1, true);
   /* channel count */
-  view.setUint16(22, 2, true);
+  view.setUint16(22, numChannel, true);
   /* sample rate */
   view.setUint32(24, sampleRate, true);
   /* byte rate (sample rate * block align) */
